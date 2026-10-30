@@ -1,0 +1,90 @@
+Crea una web estàtica d'una sola pàgina (Single Page) per al grup de música "Carlus Band".
+
+Requisits tècnics:
+- Crea un únic fitxer index.html a la carpeta actual (D:\PROJECTS\web-carlusband)
+- Fes servir Tailwind CSS via CDN per als estils
+- Fes servir JavaScript natiu per al menú mòbil (hamburguesa) i animacions suaus en fer scroll
+- Fes servir FontAwesome via CDN per a les icones
+- Totalment responsive (mòbil i escriptori)
+
+Seccions que ha de tenir:
+1. Hero Section: imatge de fons (fes servir un placeholder de Unsplash relacionat amb música en directe), nom del grup "Carlus Band" en gran, subtítol, i un botó "Escoltar a Spotify"
+2. About: breu biografia del grup (2-3 paràgrafs inventats, estil rock/indie)
+3. Discography: 3 targetes (cards) amb portades d'àlbums (placeholders d'Unsplash), títol de l'àlbum, any i enllaç
+4. Tour Dates: taula elegant amb 4-5 dates de concerts (data, ciutat, sala, botó "Entrades")
+5. Footer: icones de xarxes socials (Instagram, Spotify, YouTube, Facebook)
+
+Estètica:
+- Disseny fosc (fons negre o gris molt fosc)
+- Colors accent en blau elèctric (#00D4FF) i blanc
+- Tipografia moderna i cridanera (fes servir Google Fonts, per exemple "Bebas Neue" per als títols i "Inter" per al text)
+- Efectes hover a les targetes i botons
+- Animació suau en fer scroll (fade-in de les seccions)
+
+Tot ha de ser exclusivament en Català. Crea el fitxer index.html complet i funcional. Després obre'l amb el navegador per comprovar que es veu bé.
+
+1. Estructura de fitxers
+D:\PROJECTS\web-carlusband\
+├── index.html          ← pàgina principal (Inici · Sobre · Media · Concerts · Contacte)
+├── media.html          ← subpàgina Media
+├── css\
+│   ├── base.css        ← variables (colors #0A0A0B→#26262E, accent #FF8A3D), reset, tipografies, scrollbar, focus-visible, prefers-reduced-motion
+│   ├── layout.css      ← fons en capes de degradats difuminats, seccions 100svh + scroll-snap, navbar fix, peu de pàgina
+│   └── components.css  ← botons (sense transform al hover), targetes, calendari, matriu Media, modal vídeo, lightbox
+├── js\
+│   ├── nav.js          ← menú mòbil, scroll-spy (IntersectionObserver) i secció activa al navbar
+│   ├── media.js        ← filtres de la matriu, lightbox de fotos i modal de YouTube
+│   └── tailwind.config.js ← config de Tailwind (accent mel, Bebas Neue/Inter) fora de l'HTML
+└── assets\
+    └── favicon.svg
+
+2. Estètica general
+- Fons: capes de radial-gradient/linear-gradient molt suaus (negres #0A0A0B, #141417, #1D1D22, #26262E) amb un glow taronja molt difuminat per secció. Zero fotos de fons.
+- Accent mel #FF8A3D (hover secundari #FFB067, glow rgba(255,138,61,.25)).
+- Botons: només canvien color, fova, vora i glow — cap translate/scale.
+- Navbar: elements a 15px (ara 11px), secció activa marcada amb subratllat/luz taronja; fix a totes les pàgines.
+- Navegació: seccions a alçada de pantalla amb scroll-snap (min-height: 100svh per als mòbils), de manera que cada secció encaixa sencera sense deixar-meig de cap contingut.
+3. Seccions de index.html (5 seccions, cadascuna a pantalla completa)
+1. Inici — títol CARLUS BAND, subtítol, botó "Escoltar a Spotify" + "Obrir Media", estadístiques (3 àlbums · 140+ concerts · 12 anys).
+2. Sobre — bio condensada a 2 paràgrafs curts (perquè capgui en una pantalla) + trets (2014 · Rock indie · Barcelona).
+3. Media — resum amb 3 mini-targetes (Àudio 3 · Vídeo 2 · Fotos 6) i botó que porta a media.html.
+4. Concerts — calendari mensual 7×5 (nov. 2026) amb els dies de concert ressaltats en mel + llistat lateral dels 4 propers concerts amb botó "Entrades".
+5. Contacte — xarxes socials (Instagram, Spotify, YouTube, Facebook), correus i copyright.
+4. media.html — matriu Media
+- Capçalera amb títol, filtres (Tot · Àudio · Vídeo · Fotos) i "torna a l'inici".
+- Matriu amb etiquetes de fila: ÀUDIO (3 reproductors HTML5 amb pistes demo i botó descàrrega), VÍDEO (2 miniatures YouTube que obren un modal amb iframe youtube-nocookie), FOTOS (6 imatges amb lightbox). Els filtres amaguen les files que no toquen.
+- Nota breu explicant on posar els teus fitxers reals (assets/audio, ID de YouTube, assets/img).
+5. Verificació
+Captures amb Chrome headless (CDP) a 1440×900 i 390×844: comprovar que cada secció encaixa sense scroll lliure, que el scroll-spy marca la secció correcta, filtres/lightbox/modal funcionant, Escape tanca, cap error de consola, i finalment obrir la pàgina al navegador.
+
+Fet. La web ja està reconstruïda i verificada, i l'he oberta al navegador per defecte.
+Què hi ha ara
+Estructura modular
+- index.html — pàgina principal amb 5 seccions
+- media.html — subpàgina Media amb la matriu de continguts
+- css/base.css — variables, reset, tipografia
+- css/layout.css — capçalera fixa, seccions, navegació, peu
+- css/components.css — botons, hero, calendari, matriu, modals
+- js/nav.js, js/concerts.js, js/media.js, js/tailwind.config.js
+- assets/audio/ i assets/img/ — carpetes buides per al teu material
+Canvis aplicats
+- Discografia → Media (secció prèvia + pàgina completa)
+- Gira → Concerts, amb calendari mensual navegable i llista d'esdeveniments; clicar un dia ressaltat ressalta el concert corresponent
+- Totes les seccions a la pàgina principal amb navbar fix i scroll-snap
+- Fons de foto eliminat: ara són gradients difuminats foscos amb llum taronja
+- Blau → melon orange (#FF8A3D)
+- Botons sense moviment en hover (només color/ombra)
+- Navbar amb tipografia més gran (15px)
+Media
+- Fila d'àudio amb 3 reproductors, fila de vídeo amb 2 targetes que obren un modal de YouTube, fila de fotos amb visor (fletxes, Escape, comptador)
+- Filtres Tot / Àudio / Vídeo / Fotos
+- Nota a peu de pàgina explicant com substituir el contingut de mostra
+Verificació feta
+Provat amb Chrome headless a 360×640, 375×667, 390×844, 414×896, 768×1024, 1024×768, 1280×720, 1440×900 i 1920×1080:
+- Cap desbordament horitzontal ni contingut retallat
+- Scroll-spy i salts de secció correctes
+- Menú mòbil obre/tanca amb clic, Escape i bloqueig de scroll
+- Calendari (canvi de mes + ressaltat) i filtres/modals funcionant
+- Cap error de consola; tots els recursos externs responen 200
+En pantalles mòbils molt baixes (menys de 780px d'alçada) he desactivat el snap perquè tot el contingut sigui accessible; a la resta es manté la navegació per seccions.
+El contingut d'àudio, vídeos i fotos és de demostració (SoundHelix, YouTube i Unsplash) i està marcat perquè el puguis substituir.

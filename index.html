@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ca" class="page-snap">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlus Band — Rock indie des de Barcelona</title>
+  <meta
+    name="description"
+    content="Carlus Band, rock indie des de Barcelona. Escolta el nou àlbum Nit Elèctrica, descobreix la nostra media i consulta els propers concerts."
+  />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icones -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Tailwind (CDN) + configuració pròpia -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind.config.js"></script>
+
+  <!-- Estils propis -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+
+<body>
+  <!-- ================= CAPÇALERA ================= -->
+  <header class="site-header" id="site-header">
+    <div class="nav-inner">
+      <a href="#inici" class="brand" aria-label="Carlus Band — inici">
+        DYLAN<span class="brand__accent">RIBA</span>
+        <span class="brand__dot" aria-hidden="true"></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegació principal">
+        <a class="nav-link is-active" href="#inici" data-section="inici">Inici</a>
+        <a class="nav-link" href="#sobre" data-section="sobre">Sobre nosaltres</a>
+        <a class="nav-link" href="#media" data-section="media">Media</a>
+        <a class="nav-link" href="#concerts" data-section="concerts">Concerts</a>
+        <a class="nav-link" href="#contacte" data-section="contacte">Contacte</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a
+          class="btn btn--accent nav-cta"
+          href="https://open.spotify.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+          Escoltar
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Obrir menú de navegació"
+        >
+          <i class="fa-solid fa-bars text-lg" id="nav-toggle-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú mòbil -->
+    <div class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-menu__links" aria-label="Navegació mòbil">
+        <a class="mobile-link" href="#inici">
+          Inici <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="mobile-link" href="#sobre">
+          Sobre nosaltres <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="mobile-link" href="#media">
+          Media <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="mobile-link" href="#concerts">
+          Concerts <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="mobile-link" href="#contacte">
+          Contacte <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+      <div class="mobile-menu__footer">
+        <p class="mobile-menu__label">Barcelona · Est. 2014</p>
+        <a class="mobile-menu__mail" href="mailto:contacte@carlusband.cat">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          contacte@carlusband.cat
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="inici" class="section section--hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="badge">
+            <span class="badge__dot" aria-hidden="true"></span>
+            Nou àlbum · Nit Elèctrica
+          </span>
+
+          <h1 class="hero-title" id="hero-title">
+            <span>Dylan</span>
+            <span class="hero-title__outline">Riba</span>
+          </h1>
+
+          <p class="hero-lead">
+            Rock indie des de Barcelona. Guitarres que cremen, cors que cauen i
+            cançons per a les nits que no vols que s'acabin.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn--accent"
+              href="https://open.spotify.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+              Escoltar a Spotify
+            </a>
+            <a class="btn btn--ghost" href="#media">
+              Descobrir Media
+              <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <p class="stat__value">3</p>
+              <p class="stat__label">Àlbums</p>
+            </div>
+            <div class="stat">
+              <p class="stat__value">140+</p>
+              <p class="stat__label">Concerts</p>
+            </div>
+            <div class="stat">
+              <p class="stat__value">12</p>
+              <p class="stat__label">Anys</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-orbit"></div>
+          <div class="vinyl">
+            <div class="vinyl__label">
+              <strong>CARLUS<br />BAND</strong>
+              <span>ROCK INDIE · BCN</span>
+              <span class="vinyl__hole"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#sobre">
+        Segueix
+        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ================= SOBRE NOSALTRES ================= -->
+    <section id="sobre" class="section section--about" aria-labelledby="sobre-title">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">01 — Sobre nosaltres</p>
+          <h2 class="section-title" id="sobre-title">
+            Soroll, suor<br />i <em>melodies</em>
+          </h2>
+
+          <p>
+            Carlus Band va néixer el 2014 en un local d'assaig humit del barri de
+            Gràcia, Barcelona. Quatre amics més avesats a suspendre exàmens que a
+            pujar a un escenari van canviar els apunts per les guitarres i van
+            començar a escriure cançons sobre nits que no s'acaben mai.
+          </p>
+          <p>
+            El seu so barreja guitarres distorsionades, cors catàrtics i lletres
+            de ciutat, d'amor mal gestionat i de diumenges que es fan llargs.
+            <strong>Nit Elèctrica</strong> (2025) és el seu treball més directe:
+            deu cançons enregistrades en directe i pensades per ser cridades a
+            ple pulmó.
+          </p>
+
+          <div class="about-tags">
+            <span class="tag">Rock alternatiu</span>
+            <span class="tag">Indie</span>
+            <span class="tag">Energia en directe</span>
+          </div>
+        </div>
+
+        <aside class="about-panel">
+          <dl class="about-facts">
+            <div>
+              <dt>Origen</dt>
+              <dd>Barcelona</dd>
+            </div>
+            <div>
+              <dt>Formació</dt>
+              <dd>2014</dd>
+            </div>
+            <div>
+              <dt>Estil</dt>
+              <dd>Rock indie</dd>
+            </div>
+            <div>
+              <dt>Discos</dt>
+              <dd>3 àlbums</dd>
+            </div>
+          </dl>
+
+          <blockquote class="about-quote">
+            “No venim a fer amics, venim a fer <span>soroll</span>.”
+          </blockquote>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= MEDIA (RESUM) ================= -->
+    <section id="media" class="section section--media" aria-labelledby="media-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 — Media</p>
+            <h2 class="section-title" id="media-title">
+              Escolta, mira,<br /><em>reviu-ho</em>
+            </h2>
+          </div>
+          <a class="btn btn--ghost" href="media.html">
+            Obrir tota la Media
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="media-preview">
+          <a class="preview-card" href="media.html#audio">
+            <div class="preview-card__head">
+              <span class="preview-card__icon">
+                <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+              </span>
+              <span class="preview-card__count">03 pistes</span>
+            </div>
+            <div class="preview-card__body">
+              <h3>Àudio</h3>
+              <p>Directes, maquetes i versions acústiques.</p>
+            </div>
+            <div class="preview-card__foot">
+              <div class="eq" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <span class="preview-card__more">
+                Explorar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <a class="preview-card" href="media.html#video">
+            <div class="preview-card__head">
+              <span class="preview-card__icon">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </span>
+              <span class="preview-card__count">02 vídeos</span>
+            </div>
+            <div class="preview-card__body">
+              <h3>Vídeo</h3>
+              <p>Directes i sessions gravades a la nostra sala.</p>
+            </div>
+            <div class="preview-card__foot">
+              <span class="preview-card__more">
+                Explorar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <a class="preview-card" href="media.html#fotos">
+            <div class="preview-card__head">
+              <span class="preview-card__icon">
+                <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
+              </span>
+              <span class="preview-card__count">06 fotos</span>
+            </div>
+            <div class="preview-card__body">
+              <h3>Fotos</h3>
+              <p>Instants de gira, backstage i pista plena.</p>
+            </div>
+            <div class="preview-card__foot">
+              <span class="preview-card__more">
+                Explorar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <p class="media-hint">
+          <i class="fa-solid fa-table-cells" aria-hidden="true"></i>
+          Una matriu amb tot el nostre àudio, vídeo i fotografia, en una sola pàgina.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONCERTS ================= -->
+    <section id="concerts" class="section section--concerts" aria-labelledby="concerts-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">03 — Agenda</p>
+            <h2 class="section-title" id="concerts-title">
+              Propers<br /><em>concerts</em>
+            </h2>
+          </div>
+          <p class="section-note">
+            Gira 2026/27. Entrades limitades: si vens, crida fort. Ho enregistrem
+            tot per al proper disc en directe.
+          </p>
+        </div>
+
+        <div class="concerts-layout">
+          <div class="calendar-panel">
+            <div class="calendar-head">
+              <p class="calendar-month" id="calendar-month" aria-live="polite">Novembre 2026</p>
+              <div class="calendar-nav">
+                <button
+                  class="calendar-btn"
+                  id="calendar-prev"
+                  type="button"
+                  aria-label="Mes anterior"
+                >
+                  <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button
+                  class="calendar-btn"
+                  id="calendar-next"
+                  type="button"
+                  aria-label="Mes següent"
+                >
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="calendar-weekdays" aria-hidden="true">
+              <span>dl</span><span>dt</span><span>dc</span><span>dj</span>
+              <span>dv</span><span>ds</span><span>dg</span>
+            </div>
+
+            <div
+              class="calendar-grid"
+              id="calendar-grid"
+            ></div>
+
+            <p class="calendar-legend">
+              <span aria-hidden="true"></span>
+              Dia de concert
+            </p>
+          </div>
+
+          <ul class="concert-list" aria-label="Propers concerts">
+            <li class="concert-item" data-date="2026-11-14">
+              <div class="concert-date">
+                <strong>14</strong>
+                <span>Novembre 2026</span>
+              </div>
+              <div class="concert-place">
+                <strong>Barcelona</strong>
+                <span>Razzmatazz · Últimes entrades</span>
+              </div>
+              <a
+                class="btn btn--ghost"
+                href="https://www.ticketmaster.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrades per al concert de Barcelona, 14 de novembre de 2026"
+              >
+                Entrades
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="concert-item" data-date="2026-11-28">
+              <div class="concert-date">
+                <strong>28</strong>
+                <span>Novembre 2026</span>
+              </div>
+              <div class="concert-place">
+                <strong>València</strong>
+                <span>Sala Moon</span>
+              </div>
+              <a
+                class="btn btn--ghost"
+                href="https://www.ticketmaster.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrades per al concert de València, 28 de novembre de 2026"
+              >
+                Entrades
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="concert-item" data-date="2026-12-12">
+              <div class="concert-date">
+                <strong>12</strong>
+                <span>Desembre 2026</span>
+              </div>
+              <div class="concert-place">
+                <strong>Madrid</strong>
+                <span>La Riviera</span>
+              </div>
+              <a
+                class="btn btn--ghost"
+                href="https://www.ticketmaster.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrades per al concert de Madrid, 12 de desembre de 2026"
+              >
+                Entrades
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="concert-item" data-date="2027-01-09">
+              <div class="concert-date">
+                <strong>09</strong>
+                <span>Gener 2027</span>
+              </div>
+              <div class="concert-place">
+                <strong>Girona</strong>
+                <span>La Mirona</span>
+              </div>
+              <a
+                class="btn btn--ghost"
+                href="https://www.ticketmaster.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrades per al concert de Girona, 9 de gener de 2027"
+              >
+                Entrades
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+
+            <li class="concert-item" data-date="2027-05-12">
+              <div class="concert-date">
+                <strong>12</strong>
+                <span>Maig 2027</span>
+              </div>
+              <div class="concert-place">
+                <strong>Ulldecona</strong>
+                <span>Plaça de l'Ajuntament</span>
+              </div>
+              <a
+                class="btn btn--ghost"
+                href="https://www.ticketmaster.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrades per al concert de Ulldecona, 12 de maig de 2027"
+              >
+                Entrades
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTE ================= -->
+    <section id="contacte" class="section section--contact" aria-labelledby="contacte-title">
+      <div class="container contact-main">
+        <div class="contact-copy">
+          <p class="eyebrow">04 — Contacte</p>
+          <h2 class="section-title" id="contacte-title">
+            Parlem-ne,<br />o millor: <em>toquem</em>
+          </h2>
+          <p class="contact-lead">
+            Sales, festivals, premsa o una col·laboració estranya a les tres de la
+            matinada: escriu-nos i ho muntem. Tenim furgoneta (més o menys).
+          </p>
+          <a class="btn btn--accent" href="mailto:contacte@carlusband.cat">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Escriu-nos
+          </a>
+        </div>
+
+        <div class="contact-side">
+          <div class="contact-block">
+            <p class="contact-block__label">Contractació</p>
+            <a href="mailto:contacte@carlusband.cat">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              contacte@carlusband.cat
+            </a>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-block__label">Premsa</p>
+            <a href="mailto:premsa@carlusband.cat">
+              <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+              premsa@carlusband.cat
+            </a>
+          </div>
+
+          <div class="socials" aria-label="Xarxes socials de Carlus Band">
+            <a
+              class="social-btn"
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a
+              class="social-btn"
+              href="https://open.spotify.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Spotify"
+            >
+              <i class="fa-brands fa-spotify" aria-hidden="true"></i>
+            </a>
+            <a
+              class="social-btn"
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a
+              class="social-btn"
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="footer-bar">
+          <p>© 2026 Carlus Band. Tots els drets reservats.</p>
+          <div class="footer-bar__links">
+            <a href="media.html">Media</a>
+            <a href="#concerts">Concerts</a>
+            <a href="mailto:contacte@carlusband.cat">Contacte</a>
+          </div>
+          <p>Fet amb <i class="fa-solid fa-heart" aria-hidden="true"></i> i distorsió a Barcelona</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/nav.js"></script>
+  <script src="js/concerts.js"></script>
+</body>
+</html>
