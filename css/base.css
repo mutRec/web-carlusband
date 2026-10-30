@@ -17,11 +17,11 @@
   --muted: #a3a3ad;
   --muted-2: #6f6f7a;
 
-  --accent: #cfcfd6;
-  --accent-soft: #ececf0;
-  --accent-deep: #8d8d97;
-  --accent-ink: #0a0a0b;
-  --accent-glow: rgba(255, 255, 255, 0.2);
+  --accent: #f5c518; /* groc fort */
+  --accent-soft: #ffe066; /* groc pàlid */
+  --accent-deep: #b8860b; /* groc fosc (foscures/enllaços) */
+  --accent-ink: #0a0a0b; /* text sobre groc */
+  --accent-glow: rgba(245, 197, 24, 0.32);
 
   /* Tipografia */
   --font-display: "Bebas Neue", Impact, sans-serif;
