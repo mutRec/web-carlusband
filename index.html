@@ -47,34 +47,21 @@
 
       <nav class="nav-links" aria-label="Navegació principal">
         <a class="nav-link is-active" href="#inici" data-section="inici">Inici</a>
-        <a class="nav-link" href="#sobre" data-section="sobre">Sobre nosaltres</a>
         <a class="nav-link" href="#media" data-section="media">Media</a>
         <a class="nav-link" href="#concerts" data-section="concerts">Concerts</a>
         <a class="nav-link" href="#contacte" data-section="contacte">Contacte</a>
       </nav>
 
-      <div class="nav-actions">
-        <a
-          class="btn btn--accent nav-cta"
-          href="https://open.spotify.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-spotify" aria-hidden="true"></i>
-          Escoltar
-        </a>
-
-        <button
-          class="nav-toggle"
-          id="nav-toggle"
-          type="button"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          aria-label="Obrir menú de navegació"
-        >
-          <i class="fa-solid fa-bars text-lg" id="nav-toggle-icon" aria-hidden="true"></i>
-        </button>
-      </div>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Obrir menú de navegació"
+      >
+        <i id="nav-toggle-icon" class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+      </button>
     </div>
 
     <!-- Menú mòbil -->
@@ -82,9 +69,6 @@
       <nav class="mobile-menu__links" aria-label="Navegació mòbil">
         <a class="mobile-link" href="#inici">
           Inici <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a class="mobile-link" href="#sobre">
-          Sobre nosaltres <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>
         <a class="mobile-link" href="#media">
           Media <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -143,63 +127,20 @@
             </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ================= SOBRE NOSALTRES ================= -->
-    <section id="sobre" class="section section--about" aria-labelledby="sobre-title">
-      <div class="container about-grid">
-        <div class="about-copy">
-          <p class="eyebrow">01 — Sobre nosaltres</p>
-          <h2 class="section-title" id="sobre-title">
-            Soroll, suor<br />i <em>melodies</em>
-          </h2>
-
-          <p>
-            Carlus Band va néixer el 2014 en un local d'assaig humit del barri de
-            Gràcia, Barcelona. Quatre amics més avesats a suspendre exàmens que a
-            pujar a un escenari van canviar els apunts per les guitarres i van
-            començar a escriure cançons sobre nits que no s'acaben mai.
-          </p>
-          <p>
-            El seu so barreja guitarres distorsionades, cors catàrtics i lletres
-            de ciutat, d'amor mal gestionat i de diumenges que es fan llargs.
-            <strong>Nit Elèctrica</strong> (2025) és el seu treball més directe:
-            deu cançons enregistrades en directe i pensades per ser cridades a
-            ple pulmó.
-          </p>
-
-          <div class="about-tags">
-            <span class="tag">Rock alternatiu</span>
-            <span class="tag">Indie</span>
-            <span class="tag">Energia en directe</span>
-          </div>
+        <div class="hero-visual">
+          <figure class="hero-photo">
+            <img
+              src="assets/img/carlusband-hero.png"
+              alt="Els quatre membres de Carlus Band asseguts en un sofà, retrat en blanc i negre"
+              width="1983"
+              height="793"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
-
-        <aside class="about-panel">
-          <dl class="about-facts">
-            <div>
-              <dt>Origen</dt>
-              <dd>Barcelona</dd>
-            </div>
-            <div>
-              <dt>Formació</dt>
-              <dd>2014</dd>
-            </div>
-            <div>
-              <dt>Estil</dt>
-              <dd>Rock indie</dd>
-            </div>
-            <div>
-              <dt>Discos</dt>
-              <dd>3 àlbums</dd>
-            </div>
-          </dl>
-
-          <blockquote class="about-quote">
-            “No venim a fer amics, venim a fer <span>soroll</span>.”
-          </blockquote>
-        </aside>
       </div>
     </section>
 
