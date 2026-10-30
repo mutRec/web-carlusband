@@ -62,23 +62,31 @@
   );
 
   function openVideo(card) {
-    if (!videoModal || !videoFrame) return;
+  if (!videoModal || !videoFrame) return;
 
-    rememberFocus();
+  rememberFocus();
 
-    videoTitle.textContent = card.dataset.title || "Vídeo";
-    videoFrame.title = card.dataset.title || "Vídeo de Carlus Band";
+  videoTitle.textContent = card.dataset.title || "Vídeo";
+  videoFrame.title = card.dataset.title || "Vídeo de Carlus Band";
+
+  const id = encodeURIComponent(card.dataset.video);
+  const provider = card.dataset.provider || "youtube";
+
+  if (provider === "vimeo") {
     videoFrame.src =
-      "https://www.youtube-nocookie.com/embed/" +
-      encodeURIComponent(card.dataset.video) +
-      "?autoplay=1&rel=0";
-
-    videoModal.hidden = false;
-    lockScroll(true);
-
-    const closeButton = videoModal.querySelector(".modal__close");
-    if (closeButton) closeButton.focus();
+      "https://player.vimeo.com/video/" + id + "?autoplay=1";
+  } else {
+    videoFrame.src =
+      "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
   }
+
+  videoModal.hidden = false;
+  lockScroll(true);
+
+  const closeButton = videoModal.querySelector(".modal__close");
+  if (closeButton) closeButton.focus();
+}
+
 
   function closeVideo() {
     if (!videoModal || videoModal.hidden) return;

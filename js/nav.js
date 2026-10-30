@@ -98,15 +98,14 @@
 
   updateHeader();
 
-  /* ---------- Secció activa al navbar ---------- */
+  /* ---------- Seccions tipus pestanyes (SPA) ---------- */
 
   const sections = Array.prototype.slice.call(
     document.querySelectorAll("main section[id]")
   );
 
-  if (sections.length && desktopLinks.length) {
-    const visibleSections = new Map();
-
+  if (sections.length) {
+    // Marca l'enllaç de la navbar corresponent a la secció activa
     function setActive(id) {
       desktopLinks.forEach(function (link) {
         const isActive = link.dataset.section === id;
@@ -119,33 +118,59 @@
       });
     }
 
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          visibleSections.set(entry.target.id, entry.isIntersecting);
-        });
+    // Mostra només la secció amb aquest id i n'amaga la resta
+    function showSection(id) {
+      let found = false;
 
-        const active = sections.find(function (section) {
-          return visibleSections.get(section.id);
-        });
+      sections.forEach(function (section) {
+        const isActive = section.id === id;
+        section.classList.toggle("is-active", isActive);
+        if (isActive) found = true;
+      });
 
-        if (active) setActive(active.id);
-      },
-      {
-        rootMargin: "-45% 0px -45% 0px",
-        threshold: 0,
+      if (!found) return;
+
+      setActive(id);
+
+      // Canvi de "pestanya": tornem a dalt de tot sense desplaçament suau
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+      if (menuOpen) setMenu(false);
+    }
+
+    // Canvi d'estat en clicar qualsevol enllaç d'ancoratge (#seccio)
+    document.addEventListener("click", function (event) {
+      const link = event.target.closest("a[href^='#']");
+      if (!link) return;
+
+      const id = link.getAttribute("href").slice(1);
+      if (!sections.some(function (section) { return section.id === id; }))
+        return;
+
+      event.preventDefault();
+
+      // Actualitza l'URL via history per no recarregar la pàgina
+      if (window.location.hash !== "#" + id) {
+        window.history.pushState({ section: id }, "", "#" + id);
       }
-    );
 
-    sections.forEach(function (section) {
-      observer.observe(section);
+      showSection(id);
+    });
+
+    // Suport als botons Endavant/Endarreri del navegador
+    window.addEventListener("popstate", function () {
+      const id = window.location.hash.slice(1);
+      if (sections.some(function (section) { return section.id === id; })) {
+        showSection(id);
+      }
     });
 
     // Estat inicial (per si es carrega directament amb un hash)
-    const initial = sections.find(function (section) {
-      return "#" + section.id === window.location.hash;
-    });
-
-    if (initial) setActive(initial.id);
+    const initialId = window.location.hash.slice(1);
+    if (sections.some(function (section) { return section.id === initialId; })) {
+      showSection(initialId);
+    } else {
+      setActive(sections[0].id);
+    }
   }
 })();
