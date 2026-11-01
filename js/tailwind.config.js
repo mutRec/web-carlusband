@@ -3,16 +3,16 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0a0a0b",
-        coal: "#121215",
-        panel: "#17171b",
-        line: "rgba(255,255,255,0.08)",
+        ink: "#131314",
+        coal: "#1a1a1b",
+        panel: "#1e1e20",
+        line: "rgba(255,255,255,0.09)",
         accent: {
-          DEFAULT: "#cfcfd6",
-          soft: "#ececf0",
-          deep: "#8d8d97",
+          DEFAULT: "#f2f1ee",
+          soft: "#c9c8c3",
+          deep: "#8d8c87",
         },
-        muted: "#a3a3ad",
+        muted: "#a6a5a0",
       },
       fontFamily: {
         display: ['"Bebas Neue"', "Impact", "sans-serif"],

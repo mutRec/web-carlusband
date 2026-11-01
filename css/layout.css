@@ -19,17 +19,17 @@
 
 .site-header.is-scrolled,
 .site-header.is-menu-open {
-  background: rgba(10, 10, 11, 0.86);
+  background: rgba(19, 19, 20, 0.93);
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   border-bottom-color: var(--line);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
 /* Sense filtre quan el menú mòbil és obert: el filtre crearia un
    containing block i trencaria el posicionament fixed del menú. */
 .site-header.is-menu-open {
-  background: #0b0b0d;
+  background: #131314;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
@@ -58,7 +58,8 @@
 }
 
 .brand__accent {
-  color: var(--accent);
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--gold-glow);
   margin-left: 0.16em;
   transition: color 0.25s ease;
 }
@@ -72,8 +73,8 @@
   height: 6px;
   margin-left: 5px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent-glow);
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
 }
 
 .nav-links {
@@ -154,7 +155,7 @@
   display: flex;
   flex-direction: column;
   padding: clamp(1.25rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 3.5rem) 2rem;
-  background: linear-gradient(180deg, #0b0b0d 0%, #121114 100%);
+  background: #131314; /* fons mat, sense degradat */
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -183,7 +184,7 @@
   font-family: var(--font-display);
   font-size: clamp(2rem, 8vw, 2.75rem);
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   transition: color 0.25s ease, padding-left 0.25s ease;
 }
 
@@ -254,78 +255,71 @@
   pointer-events: none;
 }
 
-/* Llums de fons difuminats */
+/* Fons negre mat clar amb vinyeta suau (sense brillantors) */
 .section::before {
   background: radial-gradient(
-      58% 52% at 80% 14%,
-      rgba(255, 255, 255, 0.1),
-      transparent 62%
-    ),
-    radial-gradient(
-      46% 45% at 8% 92%,
-      rgba(255, 255, 255, 0.04),
-      transparent 60%
-    ),
-    linear-gradient(180deg, #0b0b0d 0%, #101013 55%, #0a0a0b 100%);
+    130% 100% at 50% 42%,
+    #1a1a1b 0%,
+    #131314 58%,
+    #0f0f10 100%
+  );
 }
 
-/* Graella subtil */
+/* Gravat vintage: trama creuada fina al centre (ben marcada) */
 .section::after {
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.08) 0 1px,
+      transparent 1px 6px
     ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 84px 84px;
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.055) 0 1px,
+      transparent 1px 6px
+    );
   -webkit-mask-image: radial-gradient(
     72% 62% at 50% 42%,
     #000 0%,
     transparent 82%
   );
   mask-image: radial-gradient(72% 62% at 50% 42%, #000 0%, transparent 82%);
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .section--hero::before {
   background: radial-gradient(
-      52% 60% at 78% 46%,
-      rgba(255, 255, 255, 0.13),
-      transparent 64%
-    ),
-    radial-gradient(
-      40% 40% at 16% 12%,
-      rgba(255, 255, 255, 0.05),
-      transparent 65%
-    ),
-    linear-gradient(180deg, #0a0a0b 0%, #0d0d0f 60%, #0a0a0b 100%);
+    120% 95% at 62% 40%,
+    #1a1a1b 0%,
+    #131314 55%,
+    #101011 100%
+  );
 }
 
 .section--about::before {
   background: radial-gradient(
-      55% 60% at 12% 30%,
-      rgba(255, 255, 255, 0.09),
-      transparent 62%
-    ),
-    linear-gradient(200deg, #111114 0%, #0c0c0e 55%, #0a0a0b 100%);
+    135% 100% at 35% 45%,
+    #1b1b1c 0%,
+    #131314 60%,
+    #0f0f10 100%
+  );
 }
 
 .section--media::before {
   background: radial-gradient(
-      50% 55% at 86% 76%,
-      rgba(255, 255, 255, 0.08),
-      transparent 62%
-    ),
-    linear-gradient(180deg, #0a0a0b 0%, #101012 50%, #0b0b0d 100%);
+    130% 105% at 65% 60%,
+    #1a1a1b 0%,
+    #131314 58%,
+    #101011 100%
+  );
 }
 
 .section--concerts::before {
   background: radial-gradient(
-      55% 60% at 16% 16%,
-      rgba(255, 255, 255, 0.1),
-      transparent 64%
-    ),
-    linear-gradient(160deg, #101013 0%, #0b0b0d 55%, #0a0a0b 100%);
+    125% 100% at 35% 30%,
+    #1b1b1c 0%,
+    #131314 55%,
+    #0f0f10 100%
+  );
 }
 
 .section--contact {
@@ -335,16 +329,11 @@
 
 .section--contact::before {
   background: radial-gradient(
-      70% 70% at 50% 116%,
-      rgba(255, 255, 255, 0.16),
-      transparent 62%
-    ),
-    radial-gradient(
-      40% 40% at 84% 10%,
-      rgba(255, 255, 255, 0.04),
-      transparent 60%
-    ),
-    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 100%);
+    130% 100% at 50% 60%,
+    #1b1b1c 0%,
+    #131314 58%,
+    #0f0f10 100%
+  );
 }
 
 /* ---------------- Peu de pàgina ---------------- */
@@ -356,13 +345,13 @@
   gap: 1rem;
   padding-top: clamp(1rem, 2.5vh, 1.5rem);
   border-top: 1px solid var(--line);
-  font-size: clamp(15px, 1.1vw, 11px);
+  font-size: clamp(15px, 1.1vw, 17px);
   letter-spacing: 0.02em;
   color: var(--text);
 }
 
 .footer-bar i {
-  color: var(--accent);
+  color: var(--accent-soft);
 }
 
 .footer-bar__links {
@@ -379,7 +368,8 @@
 }
 
 .footer-bar__links a:hover {
-  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* Enllaç a la web del dissenyador amb la icona rodona */
@@ -391,16 +381,17 @@
 .footer-bar__design-text {
   line-height: 1.4;
   letter-spacing: 0.02em;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .footer-bar__design-text a {
-  color: var(--accent);
+  color: var(--text);
   transition: color 0.25s ease;
 }
 
 .footer-bar__design-text a:hover {
-  color: var(--accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .footer-bar__design-icon {
@@ -435,16 +426,11 @@
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(
-      55% 42% at 82% 4%,
-      rgba(255, 255, 255, 0.1),
-      transparent 65%
-    ),
-    radial-gradient(
-      40% 35% at 8% 36%,
-      rgba(255, 255, 255, 0.03),
-      transparent 65%
-    ),
-    linear-gradient(180deg, #0c0c0e 0%, #0a0a0b 45%, #0a0a0b 100%);
+    130% 90% at 70% 10%,
+    #1a1a1b 0%,
+    #131314 55%,
+    #101011 100%
+  );
 }
 
 .page-hero {
@@ -487,7 +473,7 @@
 
 .page-title em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-soft);
 }
 
 .page-lead {

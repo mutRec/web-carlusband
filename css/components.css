@@ -28,25 +28,25 @@
 }
 
 .btn--accent {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--gold);
+  color: var(--gold-ink);
 }
 
 .btn--accent:hover {
-  background: var(--accent-soft);
+  background: var(--gold-soft);
   box-shadow: 0 0 0 1px rgba(245, 197, 24, 0.45),
     0 12px 34px rgba(245, 197, 24, 0.28);
 }
 
 .btn--ghost {
   border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text);
 }
 
 .btn--ghost:hover {
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--accent);
 }
 
@@ -67,10 +67,10 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.45rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--accent-soft);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -83,7 +83,7 @@
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(245, 197, 24, 0.6);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55);
   animation: pulse 2.4s ease-out infinite;
 }
 
@@ -117,7 +117,7 @@
 
 .section-title em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-soft);
 }
 
 .section-head {
@@ -151,20 +151,32 @@
 
 .hero-title {
   margin-top: 1.4rem;
-  font-family: var(--font-display);
-  font-size: clamp(4.25rem, 10.8vw, 9.5rem);
-  line-height: 0.82;
-  letter-spacing: 0.005em;
+  font-family: var(--font-hero);
+  font-size: clamp(2.75rem, 7.5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .hero-title span {
   display: block;
+  /* Neó blanc (tipus rètol de bar) — glow curt i nítid */
+  color: #ffffff;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 1),
+    0 0 6px rgba(255, 255, 255, 0.9), 0 0 14px rgba(255, 255, 255, 0.55),
+    0 0 28px rgba(245, 197, 24, 0.45);
+  animation: neon-flicker 6s linear infinite;
 }
 
-.hero-title__outline {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--accent);
-  text-shadow: 0 0 70px rgba(245, 197, 24, 0.22);
+/* Neó groc — la línia "BAND" */
+.hero-title .hero-title__gold {
+  color: var(--gold-soft);
+  -webkit-text-stroke: 0;
+  text-shadow: 0 0 2px rgba(255, 245, 214, 1),
+    0 0 6px rgba(255, 224, 102, 0.95), 0 0 14px rgba(245, 197, 24, 0.7),
+    0 0 30px rgba(245, 197, 24, 0.5);
+  animation: neon-flicker 6s linear infinite;
+  animation-delay: 3s; /* desfasat: les dues línies no fallen a la vegada */
 }
 
 .hero-lead {
@@ -226,7 +238,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.07),
     transparent 66%
   );
   filter: blur(52px);
@@ -322,7 +334,7 @@
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.035);
   font-size: 9.5px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -334,14 +346,19 @@
   position: relative;
   overflow: hidden;
   padding: clamp(1.5rem, 3vw, 2.25rem);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.01) 45%,
-    rgba(255, 255, 255, 0.06)
-  );
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.015) 45%,
+      rgba(255, 255, 255, 0.04)
+    );
+  /* Marc de gravat: doble filet interior */
+  box-shadow: inset 0 0 0 4px var(--black),
+    inset 0 0 0 5px rgba(255, 255, 255, 0.16);
 }
 
 .about-panel::before {
@@ -352,7 +369,7 @@
   font-family: var(--font-display);
   font-size: 12rem;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.035);
   pointer-events: none;
 }
 
@@ -411,20 +428,22 @@
   padding: 1.4rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(
-    165deg,
-    rgba(245, 197, 24, 0.07),
-    rgba(255, 255, 255, 0.012) 55%,
-    rgba(245, 197, 24, 0.03)
-  );
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.015) 55%,
+      rgba(255, 255, 255, 0.035)
+    );
   transition: border-color 0.3s ease, background-color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .preview-card:hover {
-  border-color: rgba(245, 197, 24, 0.45);
-  background-color: rgba(245, 197, 24, 0.05);
-  box-shadow: 0 0 44px rgba(245, 197, 24, 0.14);
+  border-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 44px rgba(255, 255, 255, 0.06);
 }
 
 .preview-card__head {
@@ -439,9 +458,9 @@
   height: 56px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(245, 197, 24, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
-  background: rgba(245, 197, 24, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--accent);
   font-size: 19px;
 }
@@ -533,7 +552,7 @@
 .eq span {
   width: 3px;
   border-radius: 2px;
-  background: linear-gradient(to top, var(--accent), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(to top, var(--accent), rgba(255, 255, 255, 0.12));
   animation: eq 1.1s ease-in-out infinite alternate;
 }
 
@@ -564,11 +583,13 @@
   padding: clamp(1rem, 2vw, 1.35rem);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.01)
-  );
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
 }
 
 .calendar-head {
@@ -665,7 +686,7 @@
   border-color: var(--accent);
   color: var(--accent-ink);
   font-weight: 700;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.16);
 }
 
 .calendar-day.has-event:hover {
@@ -711,11 +732,11 @@
 }
 
 .concert-item:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .concert-item.is-highlight {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .concert-date {
@@ -815,7 +836,12 @@
   padding: clamp(1.15rem, 2vw, 1.6rem) clamp(1.25rem, 2.2vw, 1.7rem);
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.03);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.035) 0 1px,
+    transparent 1px 6px
+  );
 }
 
 .contact-block__label {
@@ -882,7 +908,7 @@
   border-color: var(--accent);
   background: var(--accent);
   color: var(--accent-ink);
-  box-shadow: 0 0 20px rgba(245, 197, 24, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 /* ---------------- Pàgina Media: filtres ---------------- */
@@ -897,7 +923,7 @@
   padding: 0.6rem 1.15rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
   font-size: 10.5px;
   font-weight: 700;
@@ -925,11 +951,13 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.025),
-    rgba(255, 255, 255, 0.008)
-  );
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    );
 }
 
 .media-row {
@@ -953,7 +981,7 @@
   gap: 0.35rem;
   padding: clamp(1.1rem, 2vw, 1.75rem);
   border-right: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.22);
 }
 
 .media-row__index {
@@ -1004,11 +1032,13 @@
   padding: 1rem 1.05rem;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.04),
-    rgba(255, 255, 255, 0.012)
-  );
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1073,7 +1103,7 @@
 
 .video-card:hover {
   border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 38px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 38px rgba(255, 255, 255, 0.1);
 }
 
 .video-card img {
@@ -1271,7 +1301,7 @@
 .upload-note code {
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--accent-soft);
   font-size: 11px;
 }
@@ -1492,6 +1522,47 @@
   }
 }
 
+/* Fallada puntual del neó (llum que parpelleja) */
+@keyframes neon-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0.5;
+  }
+  7% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0.6;
+  }
+  9% {
+    opacity: 1;
+  }
+  47% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.35;
+  }
+  49% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  76% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0.55;
+  }
+  78% {
+    opacity: 1;
+  }
+}
+
 @keyframes eq {
   from {
     transform: scaleY(0.35);
@@ -1631,7 +1702,8 @@
 
 @media (max-width: 767px) {
   .hero-title {
-    font-size: clamp(3.7rem, 18vw, 6rem);
+    font-size: clamp(1.9rem, 10.5vw, 3.5rem);
+    line-height: 1.15;
   }
 
   .hero-photo {

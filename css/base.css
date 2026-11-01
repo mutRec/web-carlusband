@@ -4,27 +4,38 @@
    ============================================================ */
 
 :root {
-  /* Colors */
-  --black: #0a0a0b;
-  --black-soft: #0e0e10;
-  --coal: #121215;
-  --panel: #17171b;
-  --panel-soft: #1d1d22;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
+  color-scheme: dark;
 
-  --text: #f5f4f1;
-  --muted: #a3a3ad;
-  --muted-2: #6f6f7a;
+  /* Colors — negre mat clar (carbó) amb gravats vintage.
+     Blancs, grisos i negres; el groc només per a la marca
+     "Carlus Band" (--gold) i els botons principals (.btn--accent). */
+  --black: #131314; /* negre mat clar (fons principal) */
+  --black-soft: #171718; /* negre mat suau */
+  --coal: #1a1a1b;
+  --panel: #1e1e20;
+  --panel-soft: #232325;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.2);
 
-  --accent: #f5c518; /* groc fort */
-  --accent-soft: #ffe066; /* groc pàlid */
-  --accent-deep: #b8860b; /* groc fosc (foscures/enllaços) */
-  --accent-ink: #0a0a0b; /* text sobre groc */
-  --accent-glow: rgba(245, 197, 24, 0.32);
+  --text: #f2f1ee; /* blanc */
+  --muted: #a6a5a0; /* gris */
+  --muted-2: #75746f; /* gris fosc (etiquetes) */
+
+  --accent: #f2f1ee; /* blanc (detalls, estats actius, icones) */
+  --accent-soft: #c9c8c3; /* gris clar (realços) */
+  --accent-deep: #8d8c87; /* gris (enllaços/foscures) */
+  --accent-ink: #0f0f10; /* text negre sobre blanc */
+  --accent-glow: rgba(255, 255, 255, 0.22);
+
+  /* Groc — reservat a la marca i els botons principals */
+  --gold: #f5c518;
+  --gold-soft: #ffe066;
+  --gold-ink: #0f0f10;
+  --gold-glow: rgba(245, 197, 24, 0.35);
 
   /* Tipografia */
   --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-hero: "Monoton", "Bebas Neue", Impact, sans-serif; /* títol de l'hero (tubs de neó) */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Estructura */
@@ -77,7 +88,7 @@ html.no-scroll {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a31;
+  background: #34343a; /* gris fosc (barra de desplaçament) */
   border-radius: 999px;
 }
 
@@ -171,5 +182,11 @@ select {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* El parpelleig del neó es queda fix (llum encesa) */
+  .hero-title span,
+  .hero-title .hero-title__gold {
+    animation: none;
   }
 }
