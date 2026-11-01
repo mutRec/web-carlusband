@@ -868,16 +868,24 @@
   font-size: clamp(16px, 1.2vw, 18px);
   font-weight: 600;
   color: var(--text);
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 .contact-block__links a i {
   font-size: 15px;
   color: var(--accent);
+  transition: color 0.25s ease, filter 0.25s ease;
 }
 
+/* Hover: la línia s'il·lumina com un mini neó vainilla (sense moviment) */
 .contact-block__links a:hover {
-  color: var(--accent);
+  color: var(--gold);
+  text-shadow: 0 0 14px var(--gold-glow);
+}
+
+.contact-block__links a:hover i {
+  color: var(--gold);
+  filter: drop-shadow(0 0 6px var(--gold));
 }
 
 /* Xarxes socials, dins del mateix recuadre */
