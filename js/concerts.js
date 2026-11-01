@@ -14,11 +14,8 @@
   if (!grid || !monthLabel) return;
 
   const EVENTS = [
-    { date: "2026-11-14", city: "Barcelona", venue: "Razzmatazz" },
-    { date: "2026-11-28", city: "València", venue: "Sala Moon" },
-    { date: "2026-12-12", city: "Madrid", venue: "La Riviera" },
-    { date: "2027-01-09", city: "Girona", venue: "La Mirona" },
-    { date: "2027-05-12", city: "Ulldecona", venue: "Plaça de l'Ajuntament" },
+    { date: "2027-04-17", city: "Ulldecona", venue: "Fira Àgora 2027" },
+    { date: "2027-05-01", city: "Mataró", venue: "Festa 50 anys Jaume Castellà i amics" },
   ];
 
   const MONTHS = [
