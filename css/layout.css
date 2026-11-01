@@ -379,6 +379,40 @@
   color: var(--accent);
 }
 
+/* Enllaç a la web del dissenyador amb la icona rodona */
+.footer-bar__design {
+  display: flex;
+  align-items: center;
+}
+
+.footer-bar__design-text {
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--muted-2);
+}
+
+.footer-bar__design-text a {
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+.footer-bar__design-text a:hover {
+  color: var(--accent);
+}
+
+.footer-bar__design-icon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  margin-left: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  object-fit: cover;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
 /* ---------------- Pàgina Media ---------------- */
 
 .page-media {
