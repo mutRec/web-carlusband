@@ -27,11 +27,11 @@
   --accent-ink: #0f0f10; /* text negre sobre blanc */
   --accent-glow: rgba(255, 255, 255, 0.22);
 
-  /* Groc — reservat a la marca i els botons principals */
-  --gold: #f5c518;
-  --gold-soft: #ffe066;
-  --gold-ink: #0f0f10;
-  --gold-glow: rgba(245, 197, 24, 0.35);
+  /* Groc — reservat a la marca i els botons principals (vainilla crema) */
+  --gold: #ecdda6;
+  --gold-soft: #f6efcf;
+  --gold-ink: #201a0c;
+  --gold-glow: rgba(236, 221, 166, 0.45);
 
   /* Tipografia */
   --font-display: "Bebas Neue", Impact, sans-serif;

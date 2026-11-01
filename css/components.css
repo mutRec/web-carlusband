@@ -34,8 +34,8 @@
 
 .btn--accent:hover {
   background: var(--gold-soft);
-  box-shadow: 0 0 0 1px rgba(245, 197, 24, 0.45),
-    0 12px 34px rgba(245, 197, 24, 0.28);
+  box-shadow: 0 0 0 1px rgba(236, 221, 166, 0.55),
+    0 12px 34px rgba(236, 221, 166, 0.35);
 }
 
 .btn--ghost {
@@ -164,17 +164,17 @@
   color: #ffffff;
   text-shadow: 0 0 2px rgba(255, 255, 255, 1),
     0 0 6px rgba(255, 255, 255, 0.9), 0 0 14px rgba(255, 255, 255, 0.55),
-    0 0 28px rgba(245, 197, 24, 0.45);
+    0 0 28px rgba(236, 221, 166, 0.55);
   animation: neon-flicker 6s linear infinite;
 }
 
-/* Neó groc — la línia "BAND" */
+/* Neó groc — la línia "BAND" (el groc més fort de la web) */
 .hero-title .hero-title__gold {
-  color: var(--gold-soft);
+  color: #f6d950;
   -webkit-text-stroke: 0;
-  text-shadow: 0 0 2px rgba(255, 245, 214, 1),
-    0 0 6px rgba(255, 224, 102, 0.95), 0 0 14px rgba(245, 197, 24, 0.7),
-    0 0 30px rgba(245, 197, 24, 0.5);
+  text-shadow: 0 0 2px rgba(255, 246, 190, 1),
+    0 0 6px rgba(250, 226, 90, 0.95), 0 0 14px rgba(244, 214, 60, 0.85),
+    0 0 30px rgba(240, 205, 45, 0.65);
   animation: neon-flicker 6s linear infinite;
   animation-delay: 3s; /* desfasat: les dues línies no fallen a la vegada */
 }
