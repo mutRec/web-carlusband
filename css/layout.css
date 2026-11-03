@@ -217,7 +217,7 @@
 
 /* La pàgina d'inici és una columna: capçalera, secció activa i footer.
    La secció activa creix per ocupar l'espai que deixa lliure el footer,
-   així el footer de contacte es veu sempre sense fer scroll. */
+   així la línia del peu es veu sempre sense fer scroll. */
 .page-home {
   display: flex;
   flex-direction: column;
@@ -324,6 +324,22 @@
     125% 100% at 35% 30%,
     #1b1b1c 0%,
     #131314 55%,
+    #0f0f10 100%
+  );
+}
+
+/* ---------------- Secció Contacte ---------------- */
+
+.section--contact {
+  justify-content: center;
+  gap: clamp(1.5rem, 4vh, 3rem);
+}
+
+.section--contact::before {
+  background: radial-gradient(
+    130% 100% at 50% 60%,
+    #1b1b1c 0%,
+    #131314 58%,
     #0f0f10 100%
   );
 }
