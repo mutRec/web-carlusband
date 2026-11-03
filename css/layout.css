@@ -215,13 +215,34 @@
 
 /* ---------------- Seccions ---------------- */
 
+/* La pàgina d'inici és una columna: capçalera, secció activa i footer.
+   La secció activa creix per ocupar l'espai que deixa lliure el footer,
+   així el footer de contacte es veu sempre sense fer scroll. */
+.page-home {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-home main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* Els elements flex no poden créixer més enllà de l'amplada de la pàgina */
+  min-width: 0;
+}
+
+.page-home .section {
+  min-width: 0;
+}
+
 .section {
   position: relative;
   isolation: isolate;
   display: none;
   flex-direction: column;
   justify-content: center;
-  min-height: 100svh;
+  /* Ocupa l'espai lliure que queda per damunt del footer (sempre visible) */
+  flex: 1 0 auto;
   padding-top: calc(var(--nav-h) + clamp(1rem, 4vh, 2.75rem));
   padding-bottom: clamp(1.5rem, 4vh, 2.75rem);
   overflow: hidden;
@@ -307,18 +328,48 @@
   );
 }
 
-.section--contact {
-  justify-content: space-between;
-  gap: clamp(1.5rem, 4vh, 3rem);
-}
+/* ---------------- Peu de pàgina (a totes les pàgines i seccions) ---------------- */
 
-.section--contact::before {
+/* Només la línia inferior: "2026 · Carlus Band" + crèdit del disseny.
+   És un element fora de les seccions, així que sempre es renderitza. */
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  flex: 0 0 auto;
+  /* Perquè l'enllaç del menú no el tapi la capçalera fixa */
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
   background: radial-gradient(
     130% 100% at 50% 60%,
     #1b1b1c 0%,
     #131314 58%,
     #0f0f10 100%
   );
+}
+
+/* Gravat vintage: mateixa trama creuada que les seccions */
+.site-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.08) 0 1px,
+      transparent 1px 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.055) 0 1px,
+      transparent 1px 6px
+    );
+  -webkit-mask-image: radial-gradient(
+    72% 62% at 50% 55%,
+    #000 0%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(72% 62% at 50% 55%, #000 0%, transparent 82%);
+  opacity: 0.8;
 }
 
 /* ---------------- Peu de pàgina ---------------- */
@@ -328,7 +379,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: clamp(1rem, 2.5vh, 1.5rem);
+  padding-top: clamp(0.9rem, 2.2vh, 1.35rem);
+  padding-bottom: clamp(0.9rem, 2.2vh, 1.35rem);
   border-top: 1px solid var(--line);
   font-size: clamp(15px, 1.1vw, 17px);
   letter-spacing: 0.02em;
@@ -337,24 +389,6 @@
 
 .footer-bar i {
   color: var(--accent-soft);
-}
-
-.footer-bar__links {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.footer-bar__links a {
-  font-weight: 600;
-  letter-spacing: 0.045em;
-  color: var(--text);
-  transition: color 0.25s ease;
-}
-
-.footer-bar__links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 
 /* Enllaç a la web del dissenyador amb la icona rodona */
@@ -401,7 +435,8 @@
   position: relative;
   isolation: isolate;
   padding-top: calc(var(--nav-h) + clamp(2rem, 5vw, 4rem));
-  padding-bottom: clamp(3rem, 6vw, 5rem);
+  /* El peu de pàgina va just a sota */
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .page-media .page-main::before {
@@ -512,12 +547,9 @@
     padding-top: calc(var(--nav-h) + 0.75rem);
     padding-bottom: 1rem;
   }
-}
 
-/* Mòbils baixos: el contingut pot superar l'alçada de la pantalla.
-   El scroll és lliure (continu), sense ajustament obligatori. */
-@media (max-width: 767px) and (max-height: 780px) {
-  .section {
-    min-height: auto;
+  .footer-bar {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }

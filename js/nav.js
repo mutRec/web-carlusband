@@ -104,47 +104,78 @@
     document.querySelectorAll("main section[id]")
   );
 
+  // Marca l'enllaç de la navbar corresponent a la secció activa
+  function setActive(id) {
+    desktopLinks.forEach(function (link) {
+      const isActive = link.dataset.section === id;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  // Mostra només la secció amb aquest id i n'amaga la resta
+  function showSection(id) {
+    let found = false;
+
+    sections.forEach(function (section) {
+      const isActive = section.id === id;
+      section.classList.toggle("is-active", isActive);
+      if (isActive) found = true;
+    });
+
+    if (!found) return;
+
+    setActive(id);
+
+    // Canvi de "pestanya": tornem a dalt de tot sense desplaçament suau
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    if (menuOpen) setMenu(false);
+  }
+
+  // Ens assegura que un element fora de les seccions (el footer de contacte)
+  // sigui visible a la pantalla. Si ja ho és, no ens movem de lloc.
+  function revealTarget(target) {
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const viewportH = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top >= 0 && rect.bottom <= viewportH) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    target.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  }
+
+  // Enllaç d'ancoratge a un element que no és secció (#contacte)
+  function goToTarget(id) {
+    if (window.location.hash !== "#" + id) {
+      window.history.pushState({ section: id }, "", "#" + id);
+    }
+
+    setActive(id);
+    revealTarget(document.getElementById(id));
+
+    if (menuOpen) setMenu(false);
+  }
+
   if (sections.length) {
-    // Marca l'enllaç de la navbar corresponent a la secció activa
-    function setActive(id) {
-      desktopLinks.forEach(function (link) {
-        const isActive = link.dataset.section === id;
-        link.classList.toggle("is-active", isActive);
-        if (isActive) {
-          link.setAttribute("aria-current", "location");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-    }
-
-    // Mostra només la secció amb aquest id i n'amaga la resta
-    function showSection(id) {
-      let found = false;
-
-      sections.forEach(function (section) {
-        const isActive = section.id === id;
-        section.classList.toggle("is-active", isActive);
-        if (isActive) found = true;
-      });
-
-      if (!found) return;
-
-      setActive(id);
-
-      // Canvi de "pestanya": tornem a dalt de tot sense desplaçament suau
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-
-      if (menuOpen) setMenu(false);
-    }
-
     // Canvi d'estat en clicar qualsevol enllaç d'ancoratge (#seccio)
     document.addEventListener("click", function (event) {
       const link = event.target.closest("a[href^='#']");
       if (!link) return;
 
       const id = link.getAttribute("href").slice(1);
-      if (!sections.some(function (section) { return section.id === id; }))
+      if (!id || !sections.some(function (section) { return section.id === id; }))
         return;
 
       event.preventDefault();
@@ -160,8 +191,18 @@
     // Suport als botons Endavant/Endarreri del navegador
     window.addEventListener("popstate", function () {
       const id = window.location.hash.slice(1);
+
       if (sections.some(function (section) { return section.id === id; })) {
         showSection(id);
+        return;
+      }
+
+      const target = id ? document.getElementById(id) : null;
+      if (target) {
+        setActive(id);
+        revealTarget(target);
+      } else if (sections.length) {
+        showSection(sections[0].id);
       }
     });
 
@@ -170,7 +211,28 @@
     if (sections.some(function (section) { return section.id === initialId; })) {
       showSection(initialId);
     } else {
-      setActive(sections[0].id);
+      const initialTarget = initialId ? document.getElementById(initialId) : null;
+      setActive(initialTarget ? initialId : sections[0].id);
+      if (initialTarget) revealTarget(initialTarget);
     }
   }
+
+  /* ---------- Enllaços d'ancoratge que no són seccions (#contacte) ---------- */
+
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest("a[href^='#']");
+    if (!link) return;
+
+    const id = link.getAttribute("href").slice(1);
+    if (!id) return;
+
+    // Les seccions les gestiona l'altre listener
+    if (sections.some(function (section) { return section.id === id; })) return;
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    event.preventDefault();
+    goToTarget(id);
+  });
 })();
