@@ -1027,11 +1027,12 @@
 }
 
 .media-grid--video {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Miniatures petites i constants: el nombre de columnes s'adapta soles */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
 .media-grid--photo {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 /* Àudio */
@@ -1145,8 +1146,8 @@
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1155,7 +1156,7 @@
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: #fff;
-  font-size: 14px;
+  font-size: 11px;
   transition: background-color 0.25s ease, color 0.25s ease,
     border-color 0.25s ease;
 }
@@ -1168,26 +1169,34 @@
 
 .video-card__title {
   position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.9rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.55rem;
   z-index: 2;
   text-align: left;
 }
 
 .video-card__title strong {
-  display: block;
-  font-size: 13px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .video-card__title span {
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   margin-top: 0.15rem;
-  font-size: 9px;
+  font-size: 7.5px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-soft);
 }
@@ -1237,30 +1246,36 @@
 
 .photo-card__zoom {
   position: absolute;
-  top: 0.65rem;
-  right: 0.65rem;
+  top: 0.4rem;
+  right: 0.4rem;
   z-index: 2;
-  width: 29px;
-  height: 29px;
+  width: 20px;
+  height: 20px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 50%;
   background: rgba(10, 10, 11, 0.6);
   color: #fff;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .photo-card__caption {
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.7rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.5rem;
   z-index: 2;
-  font-size: 10.5px;
-  line-height: 1.4;
+  font-size: 9px;
+  line-height: 1.35;
   text-align: left;
   color: rgba(255, 255, 255, 0.85);
+  /* En les miniatures la llegenda no pot desbordar: màxim 2 línies */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Nota per penjar contingut */
@@ -1340,7 +1355,7 @@
 .modal__panel {
   position: relative;
   z-index: 1;
-  width: min(100%, 980px);
+  width: min(100%, 1200px);
   max-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -1353,7 +1368,7 @@
 }
 
 .modal__panel--video {
-  width: min(100%, 920px);
+  width: min(100%, 1100px);
 }
 
 .modal__close {
@@ -1392,7 +1407,7 @@
 
 .lightbox__image {
   max-width: 100%;
-  max-height: 68vh;
+  max-height: 78vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -1628,11 +1643,11 @@
   }
 
   .media-grid--video {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 
   .media-grid--photo {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
 
