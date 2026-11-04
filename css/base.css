@@ -185,8 +185,15 @@ select {
   }
 
   /* El parpelleig del neó es queda fix (llum encesa) */
-  .hero-title span,
-  .hero-title .hero-title__gold {
+  .hero-title > span,
+  .hero-title .hero-title__gold,
+  .brand__dot {
     animation: none;
+  }
+
+  /* La seqüència d'encesa tampoc no s'executa */
+  .hero-title.is-lighting .hero-letter {
+    color: inherit;
+    text-shadow: inherit;
   }
 }

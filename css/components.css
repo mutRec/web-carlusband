@@ -158,7 +158,7 @@
   text-transform: uppercase;
 }
 
-.hero-title span {
+.hero-title > span {
   display: block;
   /* Neó blanc (tipus rètol de bar) — glow curt i nítid */
   color: #ffffff;
@@ -177,6 +177,36 @@
     0 0 30px rgba(240, 205, 45, 0.65);
   animation: neon-flicker 6s linear infinite;
   animation-delay: 3s; /* desfasat: les dues línies no fallen a la vegada */
+}
+
+/* Seqüència d'encesa lletra a lletra (alterna amb el parpelleig del neó).
+   Mentre dura s'atura el flicker de la línia i les lletres comencen apagades
+   (tub de neó mort) fins que s'encenen en ordre aleatori. */
+.hero-title .hero-letter {
+  display: inline-block;
+}
+
+.hero-title.is-lighting > span {
+  animation: none;
+}
+
+.hero-title.is-lighting .hero-letter {
+  color: rgba(255, 255, 255, 0.14);
+  text-shadow: none;
+  transition: color 0.12s linear, text-shadow 0.12s linear;
+}
+
+.hero-title.is-lighting .hero-title__gold .hero-letter {
+  color: rgba(246, 217, 80, 0.16);
+}
+
+.hero-title.is-lighting .hero-letter.is-lit {
+  color: #ffffff;
+  text-shadow: inherit;
+}
+
+.hero-title.is-lighting .hero-title__gold .hero-letter.is-lit {
+  color: #f6d950;
 }
 
 .hero-lead {

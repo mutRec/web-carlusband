@@ -68,13 +68,67 @@
   color: var(--text);
 }
 
+/* LED d'estat: fallada irregular i ràpida, com un neó que no acaba
+   d'engegar (intervals i cops de llum desiguals) */
+@keyframes brand-dot-flicker {
+  0%,
+  5%,
+  7%,
+  10%,
+  30%,
+  33%,
+  35%,
+  55%,
+  58%,
+  78%,
+  82%,
+  100% {
+    opacity: 1;
+  }
+  5.5%,
+  8% {
+    opacity: 0.15;
+  }
+  6.5% {
+    opacity: 0.85;
+  }
+  9% {
+    opacity: 0.4;
+  }
+  31% {
+    opacity: 0.1;
+  }
+  32% {
+    opacity: 0.55;
+  }
+  34% {
+    opacity: 0.2;
+  }
+  56% {
+    opacity: 0.12;
+  }
+  57% {
+    opacity: 0.35;
+  }
+  79% {
+    opacity: 0.1;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  81% {
+    opacity: 0.25;
+  }
+}
+
 .brand__dot {
   width: 6px;
   height: 6px;
   margin-left: 5px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 12px var(--gold-glow);
+  box-shadow: 0 0 12px var(--gold-glow), 0 0 3px var(--gold);
+  animation: brand-dot-flicker 2.3s linear infinite;
 }
 
 .nav-links {
