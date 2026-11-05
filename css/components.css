@@ -1056,6 +1056,23 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* Missatge d'estat buit (p. ex. àudios pendents de pujar) */
+.media-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(8rem, 16vw, 10rem);
+  margin: 0;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--accent-soft);
+}
+
 .media-grid--video {
   /* Miniatures petites i constants: el nombre de columnes s'adapta soles */
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
