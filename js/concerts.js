@@ -14,8 +14,8 @@
   if (!grid || !monthLabel) return;
 
   const EVENTS = [
-    { date: "2027-04-17", city: "Ulldecona", venue: "Fira Àgora 2027" },
-    { date: "2027-05-01", city: "Mataró", venue: "Festa 50 anys Jaume Castellà i amics" },
+    { date: "2027-06-19", city: "Rubí", venue: "Festa 50 anys Jaume Castellà" },
+    { date: "2027-09-25", city: "Amposta", venue: "Festa 10è Aniversari Ateneu Cooperatiu" },
   ];
 
   const MONTHS = [
